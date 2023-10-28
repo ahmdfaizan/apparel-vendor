@@ -1,0 +1,36 @@
+{
+  "t-shirt-101": {
+    "small": {
+      "stock": 10,
+      "price": 20
+    },
+    "medium": {
+      "stock": 15,
+      "price": 20
+    },
+    "large": {
+      "stock": 12,
+      "price": 25
+    }
+  },
+  "jeas-101": {
+    "28": {
+      "stock": 5,
+      "price": 50
+    },
+    "30": {
+      "stock": 8,
+      "price": 50
+    },
+    "32": {
+      "stock": 10,
+      "price": 55
+    }
+  },
+  "t-shirt-102": {
+    "xxl": {
+      "stock": 100,
+      "price": 109.1
+    }
+  }
+}
