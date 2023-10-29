@@ -29,7 +29,7 @@ export const checkFulfillment = async (req: Request, res: Response) => {
     const order: Order = req.body;
     const response: { canFulfill: boolean; message: string } =
       service.checkFulfillment(order);
-    res.status(200).json(response);
+    res.status(response.canFulfill ? 200 : 400).json(response);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: (<Error>error).message });
@@ -41,7 +41,7 @@ export const lowestCostCal = async (req: Request, res: Response) => {
     const order: Order = req.body;
     const response: { canFulfill: boolean; lowestCost?: number } =
       service.lowestCostCal(order);
-    res.status(200).json(response);
+    res.status(response.canFulfill ? 200 : 400).json(response);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: (<Error>error).message });

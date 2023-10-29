@@ -6,7 +6,7 @@ const route = router();
 dotenv.config();
 const { ENV, DEV_PORT, PROD_PORT } = process.env;
 
-const app: Application = express();
+export const app: Application = express();
 app.use(express.json()); // add body parser
 app.use('/api', route); // add rounter
 

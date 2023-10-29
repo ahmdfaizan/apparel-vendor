@@ -1,8 +1,8 @@
 {
-  "t-shirt-104": {
-    "xxl": {
-      "stock": 10000,
-      "price": 100.1
+  "t-shirt-101": {
+    "small": {
+      "stock": 10,
+      "price": 25
     }
   }
 }
