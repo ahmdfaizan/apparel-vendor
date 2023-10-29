@@ -1,0 +1,1450 @@
+{
+	"info": {
+		"_postman_id": "0a770db5-9ce3-40e4-ad42-f31f8a86c562",
+		"name": "Apparel Vendor TS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13663240"
+	},
+	"item": [
+		{
+			"name": "Update Apparel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"XXL\",\n    \"stock\": 10000,\n    \"price\": 100.1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7000/api/apparel/update",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"apparel",
+						"update"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Missing body",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:7000/api/apparel/update",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"update"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"33-gjkY5J2jmdVpv2vzmlpBp4sM4T0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 12:23:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"ValidationError: \\\"code\\\" is required\"\n}"
+				},
+				{
+					"name": "Number check",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"XXL\",\n    \"stock\": \"abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/update",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"update"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28-x9rn4dbVdqjmKxbINIhjETApdbk\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 14:41:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"stock\\\" must be a number\"\n}"
+				},
+				{
+					"name": "Update price",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"XXL\",\n    \"price\": 101\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/update",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"update"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27-VG4WF4C8S4LVAWxSZRbtck+Zbpw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:02:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Data updated successfully\"\n}"
+				},
+				{
+					"name": "Zero price",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"XXL\",\n    \"price\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/update",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"update"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3a-2zyNf1I2wveYS9ibYO+KdI0p++U\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:03:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"price\\\" must be greater than or equal to 1\"\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"XXL\",\n    \"stock\": 10000,\n    \"price\": 100.1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/update",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"update"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27-VG4WF4C8S4LVAWxSZRbtck+Zbpw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:07:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Data updated successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Apparels",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"XXL\",\n    \"stock\": 10000,\n    \"price\": 100.1\n},\n{\n    \"code\": \"T-Shirt-102\",\n    \"size\": \"XXL\",\n    \"stock\": 100,\n    \"price\": 109.1\n}]"
+				},
+				"url": {
+					"raw": "localhost:7000/api/apparel/update-multiple",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"apparel",
+						"update-multiple"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Array check",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"XXL\",\n    \"stock\": 10000,\n    \"price\": 100.1\n}"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/update-multiple",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"update-multiple"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28-auW7HKSHwPNIdUyTdhITeE7K4sU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:10:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"value\\\" must be an array\"\n}"
+				},
+				{
+					"name": "Array of objects check",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[20]"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/update-multiple",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"update-multiple"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "44"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2c-dLRPS6bDjzFPMmJBHkB/rkZI+m4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:10:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"[0]\\\" must be of type object\"\n}"
+				},
+				{
+					"name": "Required field check",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"stock\": 10000,\n    \"price\": 100.1\n}]"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/update-multiple",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"update-multiple"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"26-NA6/5k640RdXhHe9MN35xw4vwh0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:11:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"[0].code\\\" is required\"\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"XXL\",\n    \"stock\": 10000,\n    \"price\": 100.1\n},\n{\n    \"code\": \"T-Shirt-102\",\n    \"size\": \"XXL\",\n    \"stock\": 100,\n    \"price\": 109.1\n}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/update-multiple",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"update-multiple"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27-VG4WF4C8S4LVAWxSZRbtck+Zbpw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:14:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Data updated successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Check Fulfilment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{ \"code\": \"t-shirt-101\", \"size\": \"small\", \"quantity\": 100 }]"
+				},
+				"url": {
+					"raw": "localhost:7000/api/apparel/check-fulfillment",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"apparel",
+						"check-fulfillment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Missing body",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "localhost:7000/api/apparel/check-fulfillment",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"check-fulfillment"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28-auW7HKSHwPNIdUyTdhITeE7K4sU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:25:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"value\\\" must be an array\"\n}"
+				},
+				{
+					"name": "Quantity integers check",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"XXL\",\n    \"quantity\": 100.1\n}\n]"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/check-fulfillment",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"check-fulfillment"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"31-MtvKNJvvXosWB3wcHEt5QZZ7p78\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:29:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"[0].quantity\\\" must be an integer\"\n}"
+				},
+				{
+					"name": "Check Fulfilment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"code\": \"T-Shxirt-101\",\n    \"size\": \"XxXL\",\n    \"quantity\": 100\n}\n]"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/check-fulfillment",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"check-fulfillment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "96"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"60-F6zAh+1QBarvW4Ljv+6WpJhGSAY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:41:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"canFulfill\": false,\n    \"message\": \"Filfillment failed>> code: t-shxirt-101, size: xxxl, order: 100\"\n}"
+				},
+				{
+					"name": "Stock not available",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"XXL\",\n    \"quantity\": 1000\n}\n]"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/check-fulfillment",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"check-fulfillment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6a-S5i/AczLoJfnml9FBOzYl2ycPsw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:49:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"canFulfill\": false,\n    \"message\": \"Filfillment failed>> code: t-shirt-101, size: xxl, order: 1000, stock: NA\"\n}"
+				},
+				{
+					"name": "Low stock",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"XXL\",\n    \"quantity\": 1000\n}\n]"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/check-fulfillment",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"check-fulfillment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6b-Uk5czr5eC2qC+6xFpR9KpRT4mNE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:55:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"canFulfill\": false,\n    \"message\": \"Filfillment failed>> code: t-shirt-101, size: xxl, order: 1000, stock: 100\"\n}"
+				},
+				{
+					"name": "Fulfilment ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"XXL\",\n    \"quantity\": 100\n}\n]"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/check-fulfillment",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"check-fulfillment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"22-sNmVWeTeSgJNnbc28ihPSZETCy8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 15:55:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"canFulfill\": true,\n    \"message\": \"OK\"\n}"
+				},
+				{
+					"name": "Check for minimum 1 element",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n]"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/check-fulfillment",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"check-fulfillment"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"35-Wy3/IgVKBcaQ239CjG+OXKCcTV4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 16:20:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"value\\\" must contain at least 1 items\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Lowest cost",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"small\",\n    \"quantity\": 2\n}\n]"
+				},
+				"url": {
+					"raw": "localhost:7000/api/apparel/lowest-cost",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"apparel",
+						"lowest-cost"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Missing body check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/lowest-cost",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"lowest-cost"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28-auW7HKSHwPNIdUyTdhITeE7K4sU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 16:09:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"value\\\" must be an array\"\n}"
+				},
+				{
+					"name": "Check for minimum 1 element in array",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n]"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/lowest-cost",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"lowest-cost"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"35-Wy3/IgVKBcaQ239CjG+OXKCcTV4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 16:21:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"value\\\" must contain at least 1 items\"\n}"
+				},
+				{
+					"name": "Check can fulfill",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"medium\",\n    \"quantity\": 2\n}\n]"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/lowest-cost",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"lowest-cost"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "20"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14-wLKTUsxxA2hTgM3TQhFMawIeth8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 16:22:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"canFulfill\": false\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"medium\",\n    \"quantity\": 2\n},\n{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"small\",\n    \"quantity\": 2\n},\n{\n    \"code\": \"jeas-101\",\n    \"size\": \"30\",\n    \"quantity\": 2\n}\n]"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/lowest-cost",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"lowest-cost"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"24-qRHgyTSotKM9XBtlUlJ/KwajmS4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 16:44:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"canFulfill\": true,\n    \"lowestCost\": 180\n}"
+				},
+				{
+					"name": "Cant fulfill check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"medium\",\n    \"quantity\": 2\n},\n{\n    \"code\": \"T-Shirt-101\",\n    \"size\": \"small\",\n    \"quantity\": 2\n},\n{\n    \"code\": \"jeas-101\",\n    \"size\": \"30\",\n    \"quantity\": 2\n}\n]"
+						},
+						"url": {
+							"raw": "localhost:7000/api/apparel/lowest-cost",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"apparel",
+								"lowest-cost"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "20"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14-wLKTUsxxA2hTgM3TQhFMawIeth8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Oct 2023 16:45:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"canFulfill\": false\n}"
+				}
+			]
+		}
+	]
+}
