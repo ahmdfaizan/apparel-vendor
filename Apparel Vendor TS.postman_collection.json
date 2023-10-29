@@ -66,15 +66,15 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "51"
+							"value": "34"
 						},
 						{
 							"key": "ETag",
-							"value": "W/\"33-gjkY5J2jmdVpv2vzmlpBp4sM4T0\""
+							"value": "W/\"22-1Y1s4x2uiETWZCcBd/5dP+5PZYs\""
 						},
 						{
 							"key": "Date",
-							"value": "Sat, 28 Oct 2023 12:23:07 GMT"
+							"value": "Sun, 29 Oct 2023 07:34:03 GMT"
 						},
 						{
 							"key": "Connection",
@@ -86,7 +86,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"message\": \"ValidationError: \\\"code\\\" is required\"\n}"
+					"body": "{\n    \"message\": \"\\\"code\\\" is required\"\n}"
 				},
 				{
 					"name": "Number check",
